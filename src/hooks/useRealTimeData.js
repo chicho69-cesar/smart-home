@@ -1,16 +1,12 @@
-import database from "@react-native-firebase/database";
+import { getDatabase, ref, onValue, set } from 'firebase/database';
 
-const rootRef = database().ref();
-const dataRef = rootRef.child("path/to/data");
+export const useRealTimeData = (userId, score) => {
+  const db = getDatabase();
+  const reference = ref(db, 'users/' + userId);
 
-const useRealTimeData = () => {
-  dataRef.on("value", (snapshot) => {
-    console.log("Datos actualizados:", snapshot.val());
+  set(reference, {
+    highscore: score
   });
 
-  const data = snapshot.val();
-
-  return { data };
+  console.log('Todo good mi bro');
 }
-
-export default useRealTimeData;

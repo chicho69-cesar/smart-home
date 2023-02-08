@@ -1,8 +1,12 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Button } from "react-native";
+import { useRealTimeData } from "../hooks/useRealTimeData";
 
 export default function Home() {
   return <View style={styles.container}>
-    <Text style={styles.text}>Hola Mundo!!!</Text>
+    <Button 
+      title="Send data" 
+      onPress={() => useRealTimeData("user123", 550)}
+    ></Button>
   </View>;
 }
 
