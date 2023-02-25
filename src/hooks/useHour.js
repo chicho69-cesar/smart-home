@@ -11,9 +11,17 @@ export const useHour = (extendedFormat = false) => {
     hours = hours ? hours : 12;
   }
 
+  let completeHours = hours < 10
+    ? `0${ hours }`
+    : `${ hours }`;
+
+  let completeMinutes = minutes < 10
+    ? `0${ minutes }`
+    : `${ minutes }`;
+
   return [
-    hours,
-    minutes,
+    completeHours,
+    completeMinutes,
     period
   ];
 }
