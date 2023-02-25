@@ -20,9 +20,9 @@ export default function SmartHomeLogo() {
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: 'gree',
     width: '100%',
     paddingHorizontal: 20,
-    flex: 1,
     justifyContent: 'space-between',
     flexDirection: 'row'
   },
