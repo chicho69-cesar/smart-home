@@ -3,10 +3,10 @@ import RoomsList from "../components/RoomsList";
 import SmartHomeLogo from "../components/SmartHomeLogo";
 import globalTheme from "../theme/global-theme";
 
-export default function Home() {
+export default function Home({ navigation }) {
   return <View style={styles.container}>
     <SmartHomeLogo/>
-    <RoomsList/>
+    <RoomsList navigation={navigation}/>
   </View>;
 }
 
