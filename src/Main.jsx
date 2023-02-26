@@ -1,18 +1,32 @@
 import { View } from "react-native";
-import { Route, Routes } from 'react-router-native';
-import Home from "./routes/Home";
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import SafeAppBar from "./components/SafeAppBar";
+import Home from "./routes/Home";
+import Room from "./routes/Room";
+
+const Stack = createStackNavigator();
 
 const Main = () => {
   return (
     <View style={{ flex: 1 }}>
       <SafeAppBar/>
 
-      <Routes>
-        <Route path="/" element={
-          <Home/>
-        }/>
-      </Routes>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen 
+            name="Home" 
+            component={Home} 
+            options={{ headerShown: false }}
+          />
+
+          <Stack.Screen 
+            name="Room" 
+            component={Room} 
+            options={{ headerShown: false }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
     </View>
   );
 }

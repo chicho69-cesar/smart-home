@@ -11,6 +11,7 @@ export default function RoomCard({ id, name, image, sensors, onPress }) {
 
       <Text 
         style={styles.title}
+        numberOfLines={2}
         ellipsizeMode="tail"
       >
         {name}
@@ -33,10 +34,10 @@ const styles = StyleSheet.create({
     height: 240,
   },
   title: {
-    paddingTop: 10,
-    paddingHorizontal: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 5,
     fontSize: globalTheme.fontSizes.titles,
-    fontWeight: globalTheme.fontWeights.bold,
+    fontWeight: globalTheme.fontWeights.normal,
     textAlign: 'center',
   },
 });

@@ -1,27 +1,13 @@
-import { FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View, TouchableWithoutFeedback } from "react-native";
 import { roomsData } from "../utils/rooms-data";
 import RoomCard from "./RoomCard";
 import globalTheme from './../theme/global-theme.js';
 
-export default function RoomsList() {
+export default function RoomsList({ navigation }) {
   const { rooms } = roomsData();
 
   return <View style={styles.container}>
     <Text style={styles.title}>Habitaciones</Text>
-
-    {/* <FlatList
-      data={rooms}
-      ItemSeparatorComponent={() => <Separator/>}
-      renderItem={({ item: room }) => (
-        <RoomCard 
-          id={room.id}
-          name={room.name}
-          image={room.image}
-          sensors={room.sensors}
-          onPress={() => console.log(room)}
-        />
-      )}
-    /> */}
 
     <ScrollView
       showsHorizontalScrollIndicator={false}
@@ -35,15 +21,11 @@ export default function RoomsList() {
           name={room.name}
           image={room.image}
           sensors={room.sensors}
-          onPress={() => console.log(room)}
+          onPress={() => navigation.navigate('Room', { id: room.id })}
         />
       ))}
     </ScrollView>
   </View>;
-}
-
-function Separator() {
-  return <View></View>;
 }
 
 const styles = StyleSheet.create({
