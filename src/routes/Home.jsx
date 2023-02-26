@@ -5,8 +5,14 @@ import globalTheme from "../theme/global-theme";
 
 export default function Home({ navigation }) {
   return <View style={styles.container}>
-    <SmartHomeLogo/>
-    <RoomsList navigation={navigation}/>
+    <SmartHomeLogo
+      title={'Smart Home'}
+      subtitle={'Controla tu vida'}
+    />
+
+    <RoomsList 
+      navigation={navigation}
+    />
   </View>;
 }
 

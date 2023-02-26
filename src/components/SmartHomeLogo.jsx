@@ -2,11 +2,11 @@ import { StyleSheet, Text, View } from "react-native";
 import globalTheme from "../theme/global-theme";
 import Clock from "./Clock";
 
-export default function SmartHomeLogo() {
+export default function SmartHomeLogo({ title, subtitle }) {
   return <View style={styles.container}>
     <View>
-      <Text style={styles.logo}>Smart Home</Text>
-      <Text style={styles.subLogo}>Controla tu vida</Text>
+      <Text style={styles.logo}>{title}</Text>
+      <Text style={styles.subLogo}>{subtitle}</Text>
     </View>
 
     <Clock/>
