@@ -3,7 +3,7 @@ import { useHour } from "../hooks/useHour";
 import globalTheme from "../theme/global-theme";
 
 export default function SmartHomeLogo() {
-  const [ hours, minutes, period ] = useHour();
+  let [ hours, minutes, period ] = useHour();
 
   return <View style={styles.container}>
     <View>
