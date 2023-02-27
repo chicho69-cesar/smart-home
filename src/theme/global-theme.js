@@ -34,6 +34,11 @@ const globalTheme = {
       blackPrimary: '#101010',
       blackSecondary: '#202020',
       blackThird: '#404040',
+    },
+    white: {
+      whitePrimary: '#fff',
+      whiteSecondary: '#f1f1f1',
+      whiteThird: '#e5e5e5'
     }
   }
 };

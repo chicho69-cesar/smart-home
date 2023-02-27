@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 20,
     paddingVertical: 5,
-    marginTop: 30
+    marginTop: 10
   },
   title: {
     fontSize: globalTheme.fontSizes.titles,

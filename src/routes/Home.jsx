@@ -1,5 +1,6 @@
 import { View, StyleSheet } from "react-native";
 import RoomsList from "../components/RoomsList";
+import SensorsList from "../components/SensorsList";
 import SmartHomeLogo from "../components/SmartHomeLogo";
 import globalTheme from "../theme/global-theme";
 
@@ -11,6 +12,10 @@ export default function Home({ navigation }) {
     />
 
     <RoomsList 
+      navigation={navigation}
+    />
+
+    <SensorsList
       navigation={navigation}
     />
   </View>;
