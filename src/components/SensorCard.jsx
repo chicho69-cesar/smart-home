@@ -1,17 +1,15 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 
-export default function SensorCard({ id, name, functionality, lectures, style }) {
+export default function SensorCard({ id, name, functionality, lectures, style, onPress }) {
   const cardStyles = [
-    styles.card,
     style
   ];
 
-  return <View style={cardStyles}></View>;
+  return <TouchableOpacity style={cardStyles} onPress={onPress}>
+    {/*  */}
+  </TouchableOpacity>;
 }
 
 const styles = StyleSheet.create({
-  card: {
-    height: 200,
-    backgroundColor: 'red'
-  }
+  // 
 });

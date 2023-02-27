@@ -17,6 +17,7 @@ export default function GridSensors({ sensorsData }) {
         functionality={sensor.functionality}
         lectures={sensor.lectures}
         style={itemStyles}
+        onPress={() => console.log(`/sensor/${ sensor.id }`)}
       />
     ))}
   </HorizontalList>;
@@ -33,8 +34,8 @@ const styles = StyleSheet.create({
     padding: 20,
     marginRight: 16,
     marginBottom: 10,
-    width: 150,
-    height: 150,
+    width: 165,
+    height: 165,
     alignItems: 'center',
     justifyContent: 'center',
     elevation: 2,
