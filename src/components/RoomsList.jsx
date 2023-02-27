@@ -2,6 +2,7 @@ import { ScrollView, StyleSheet, Text, View, TouchableWithoutFeedback } from "re
 import { roomsData } from "../utils/rooms-data";
 import RoomCard from "./RoomCard";
 import globalTheme from './../theme/global-theme.js';
+import { HorizontalList } from "./HorizontalList";
 
 export default function RoomsList({ navigation }) {
   const { rooms } = roomsData();
@@ -9,11 +10,7 @@ export default function RoomsList({ navigation }) {
   return <View style={styles.container}>
     <Text style={styles.title}>Habitaciones</Text>
 
-    <ScrollView
-      showsHorizontalScrollIndicator={false}
-      horizontal 
-      style={styles.scroll}
-    >
+    <HorizontalList>
       {rooms.map(room => (
         <RoomCard 
           key={room.id}
@@ -24,7 +21,7 @@ export default function RoomsList({ navigation }) {
           onPress={() => navigation.navigate('Room', { id: room.id })}
         />
       ))}
-    </ScrollView>
+    </HorizontalList>
   </View>;
 }
 

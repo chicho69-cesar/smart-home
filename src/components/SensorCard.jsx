@@ -1,17 +1,20 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, TouchableOpacity, Text } from "react-native";
+import { Ionicons, FontAwesome5 } from '@expo/vector-icons';
 
-export default function SensorCard({ id, name, functionality, lectures, style }) {
+export default function SensorCard({ id, name, functionality, lectures, style, onPress }) {
   const cardStyles = [
-    styles.card,
     style
   ];
 
-  return <View style={cardStyles}></View>;
+  return <TouchableOpacity style={cardStyles} onPress={onPress}>
+    <Text>
+      <Text>{name}</Text>
+      <Ionicons name="md-search" size={24} color="black" />
+      <FontAwesome5 name="heart" size={24} color="black" />
+    </Text>
+  </TouchableOpacity>;
 }
 
 const styles = StyleSheet.create({
-  card: {
-    height: 200,
-    backgroundColor: 'red'
-  }
+  // 
 });
