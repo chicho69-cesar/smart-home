@@ -1,9 +1,9 @@
-import { ScrollView, StyleSheet, View } from "react-native";
+import { StyleSheet } from "react-native";
 import globalTheme from "../theme/global-theme";
 import { HorizontalList } from "./HorizontalList";
 import SensorCard from "./SensorCard";
 
-export default function GridSensors({ sensorsData }) {
+export default function GridSensors({ sensorsData, navigation }) {
   const itemStyles = [
     styles.itemSensor
   ];
@@ -17,7 +17,10 @@ export default function GridSensors({ sensorsData }) {
         functionality={sensor.functionality}
         lectures={sensor.lectures}
         style={itemStyles}
-        onPress={() => console.log(`/sensor/${ sensor.id }`)}
+        onPress={() => {
+          console.log(sensor)
+          navigation.navigate('Sensor', { id: sensor.id })
+        }}
       />
     ))}
   </HorizontalList>;

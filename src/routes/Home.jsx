@@ -1,4 +1,5 @@
 import { View, StyleSheet } from "react-native";
+import CompleterSpace from "../components/CompleterSpace";
 import RoomsList from "../components/RoomsList";
 import SensorsList from "../components/SensorsList";
 import SmartHomeLogo from "../components/SmartHomeLogo";
@@ -11,13 +12,9 @@ export default function Home({ navigation }) {
       subtitle={'Controla tu vida'}
     />
 
-    <RoomsList 
-      navigation={navigation}
-    />
-
-    <SensorsList
-      navigation={navigation}
-    />
+    <RoomsList navigation={navigation}/>
+    <SensorsList navigation={navigation}/>
+    <CompleterSpace/>
   </View>;
 }
 

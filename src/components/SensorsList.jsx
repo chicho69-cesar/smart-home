@@ -11,6 +11,7 @@ export default function SensorsList({ navigation }) {
 
     <GridSensors
       sensorsData={sensors}
+      navigation={navigation}
     />
   </View>;
 }

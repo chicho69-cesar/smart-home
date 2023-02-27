@@ -8,43 +8,43 @@ export const sensorsData = () => {
         lectures: []
       }, {
         id: 2,
-        name: '',
-        functionality: 'Lluvia',
+        name: 'Lluvia',
+        functionality: '',
         lectures: []
       }, {
         id: 3,
-        name: '',
-        functionality: 'Humedad de tierra',
+        name: 'Humedad de tierra',
+        functionality: '',
         lectures: []
       }, {
         id: 4,
-        name: '',
-        functionality: 'Ruido',
+        name: 'Ruido',
+        functionality: '',
         lectures: []
       }, {
         id: 5,
-        name: '',
-        functionality: 'Gases',
+        name: 'Gases',
+        functionality: '',
         lectures: []
       }, {
         id: 6,
-        name: '',
-        functionality: 'Ultrasonico',
+        name: 'Ultrasonico',
+        functionality: '',
         lectures: []
       }, {
         id: 7,
-        name: '',
-        functionality: 'Movimiento',
+        name: 'Movimiento',
+        functionality: '',
         lectures: []
       }, {
         id: 8,
-        name: '',
-        functionality: 'Infrarojo',
+        name: 'Infrarojo',
+        functionality: '',
         lectures: []
       }, {
         id: 9,
-        name: '',
-        functionality: 'Vibracion',
+        name: 'Vibracion',
+        functionality: '',
         lectures: []
       },
     ]
