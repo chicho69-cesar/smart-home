@@ -3,8 +3,12 @@ import { roomsData } from "../utils/rooms-data";
 import RoomCard from "./RoomCard";
 import globalTheme from './../theme/global-theme.js';
 import { HorizontalList } from "./HorizontalList";
+import { useRecoilState } from "recoil";
+import { activeRoomState } from "../states/rooms";
 
 export default function RoomsList({ navigation }) {
+  const [ roomActive, setRoomActive ] = useRecoilState(activeRoomState);
+
   const { rooms } = roomsData();
 
   return <View style={styles.container}>
@@ -18,7 +22,10 @@ export default function RoomsList({ navigation }) {
           name={room.name}
           image={room.image}
           sensors={room.sensors}
-          onPress={() => navigation.navigate('Room', { id: room.id })}
+          onPress={() => {
+            setRoomActive({ ...room });
+            navigation.navigate('Room', { id: room.id })
+          }}
         />
       ))}
     </HorizontalList>

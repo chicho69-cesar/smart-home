@@ -10,8 +10,8 @@ export default function SensorCard({ id, name, functionality, icon, lectures, st
     <View style={styles.container}>
       <View style={styles.header}>
         <FontAwesome5 
-          name={icon} size={32} 
-          color="black"
+          name={icon.name} size={32} 
+          color={icon.color}
         />
 
         <View style={styles.status}></View>
@@ -67,6 +67,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   power: {
-    color: 'crimsom'
+    color: '#ae2012'
   }
 });
