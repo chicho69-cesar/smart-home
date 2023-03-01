@@ -1,18 +1,23 @@
 import { View, StyleSheet, Text } from "react-native";
 import SmartHomeLogo from "../components/SmartHomeLogo";
+import CompleterSpace from "../components/CompleterSpace";
+import ProgressWidget from "../components/ProgressWidget";
+import useSensor from "../hooks/useSensor";
 import globalTheme from "../theme/global-theme";
 
 export default function Sensor({ route }) {
   const { id } = route.params;
+  const { sensor } = useSensor(id);
 
   return <View style={styles.container}>
     <SmartHomeLogo
-      title={/* room.name */'id'}
-      subtitle={`Conoce tu ${ /* room.name */ 'id' }`}
+      title={sensor.name}
+      subtitle={`Medidas de ${ sensor.name }`}
     />
 
-    <Text>Hello World {id}</Text>
-    {/* <Text>Hello World {room.name}</Text> */}
+    <ProgressWidget progress={40} />
+
+    {/* <CompleterSpace/> */}
   </View>;
 }
 
