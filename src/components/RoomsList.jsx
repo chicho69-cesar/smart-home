@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
     fontSize: globalTheme.fontSizes.titles,
     fontWeight: globalTheme.fontWeights.bold,
     marginBottom: 5,
+    marginTop: 15
   },
   scroll: {
     paddingBottom: 15

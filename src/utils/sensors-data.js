@@ -5,47 +5,56 @@ export const sensorsData = () => {
         id: 1,
         name: 'Temperatura y Humedad',
         functionality: '',
-        lectures: []
+        icon: 'heart',
+        lectures: [ '29' ]
       }, {
         id: 2,
         name: 'Lluvia',
         functionality: '',
-        lectures: []
+        icon: 'heart',
+        lectures: [ 'SI' ]
       }, {
         id: 3,
         name: 'Humedad de tierra',
         functionality: '',
-        lectures: []
+        icon: 'heart',
+        lectures: [ '35' ]
       }, {
         id: 4,
         name: 'Ruido',
         functionality: '',
-        lectures: []
+        icon: 'heart',
+        lectures: [ '24' ]
       }, {
         id: 5,
         name: 'Gases',
         functionality: '',
-        lectures: []
+        icon: 'heart',
+        lectures: [ 'NO' ]
       }, {
         id: 6,
         name: 'Ultrasonico',
         functionality: '',
-        lectures: []
+        icon: 'heart',
+        lectures: [ '10' ]
       }, {
         id: 7,
         name: 'Movimiento',
         functionality: '',
-        lectures: []
+        icon: 'heart',
+        lectures: [ 'SI' ]
       }, {
         id: 8,
         name: 'Infrarojo',
         functionality: '',
-        lectures: []
+        icon: 'heart',
+        lectures: [ '10' ]
       }, {
         id: 9,
         name: 'Vibracion',
         functionality: '',
-        lectures: []
+        icon: 'heart',
+        lectures: [ 'NO' ]
       },
     ]
   };
