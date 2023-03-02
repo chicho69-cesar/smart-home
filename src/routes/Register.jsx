@@ -1,15 +1,43 @@
 import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
 import { TextInput, Button } from 'react-native-paper';
 import { useState } from 'react';
+import { createUserWithEmailAndPassword, setPersistence, browserSessionPersistence } from 'firebase/auth';
+import { auth } from '../firebase/firebase';
 import globalTheme from '../theme/global-theme';
+import { registerValidationSchema } from '../validations/register-validations';
 
 export default function Register({ navigation }) {
   const [ email, setEmail ] = useState('');
   const [ password, setPassword ] = useState('');
   const [ repeatPassword, setRepeatPassword ] = useState('');
+  const [ error, setError ] = useState('');
 
-  const handleRegister = () => {
-    // 
+  const handleRegister = async () => {
+    // Verificar que las contraseñas sean iguales
+    if (password !== repeatPassword) {
+      setError('Las contraseñas no coinciden.');
+      return;
+    }
+
+    try {
+      await registerValidationSchema.validate({ email, password });
+      setError('');
+      
+      // Registrar al usuario en Firebase
+      try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        setPersistence(auth, browserSessionPersistence);
+        const user = userCredential.user;
+        console.log(user);
+        navigation.navigate('Home');
+      } catch (error) {
+        console.log(error);
+        setError('Error al iniciar sesion');
+      }
+    } catch (err) {
+      const { errors } = err;
+      setError(errors[0]);
+    }
   }
 
   return (
@@ -57,6 +85,8 @@ export default function Register({ navigation }) {
         style={styles.input}
       />
 
+      {error ? <Text style={styles.error}>{error}</Text> : null}
+
       <Button 
         mode="contained" 
         onPress={handleRegister} 
@@ -100,5 +130,9 @@ const styles = StyleSheet.create({
   link: {
     color: 'blue',
     marginTop: 10,
+  },
+  error: {
+    color: 'red',
+    marginBottom: 10,
   },
 });

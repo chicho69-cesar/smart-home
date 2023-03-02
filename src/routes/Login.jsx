@@ -1,6 +1,9 @@
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { TextInput, Button } from 'react-native-paper';
 import { useState } from 'react';
+import { signInWithEmailAndPassword, setPersistence, browserSessionPersistence } from 'firebase/auth';
+import { auth } from "../firebase/firebase";
+import { loginValidationSchema } from "../validations/login-validations";
 import globalTheme from "../theme/global-theme";
 
 export default function Login({ navigation }) {
@@ -8,16 +11,30 @@ export default function Login({ navigation }) {
   const [ password, setPassword ] = useState('');
   const [ error, setError ] = useState('');
 
-  const handleLogin = () => {
-    setError('Hola')
-    console.log('login');
+  const handleLogin = async () => {
+    try {
+      await loginValidationSchema.validate({ email, password });
+      setError('');
+      
+      try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        setPersistence(auth, browserSessionPersistence);
+        const user = userCredential.user;
+        console.log(user);
+        navigation.navigate('Home');
+      } catch (err) {
+        console.log(err);
+        setError('Error al iniciar sesion');
+      }
+    } catch (err) {
+      const { errors } = err;
+      setError(errors[0]);
+    }
   }
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Login</Text>
-      {error ? <Text style={styles.error}>{error}</Text> : null}
-      
       <TextInput
         theme={{
           colors: {
@@ -44,6 +61,8 @@ export default function Login({ navigation }) {
         onChangeText={setPassword}
         secureTextEntry
       />
+
+      {error ? <Text style={styles.error}>{error}</Text> : null}
 
       <Button 
         mode="contained" 
