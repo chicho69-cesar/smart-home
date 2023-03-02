@@ -5,6 +5,8 @@ import SafeAppBar from "./components/SafeAppBar";
 import Home from "./routes/Home";
 import Room from "./routes/Room";
 import Sensor from "./routes/Sensor";
+import Register from "./routes/Register";
+import Login from "./routes/Login";
 
 const Stack = createStackNavigator();
 
@@ -15,6 +17,18 @@ const Main = () => {
 
       <NavigationContainer>
         <Stack.Navigator>
+          <Stack.Screen
+            name="Login"
+            component={Login}
+            options={{ headerShown: false }}
+          />
+
+          <Stack.Screen
+            name="Register"
+            component={Register}
+            options={{ headerShown: false }}
+          />
+
           <Stack.Screen 
             name="Home" 
             component={Home} 
