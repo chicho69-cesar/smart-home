@@ -33,7 +33,7 @@ export const sensorsData = () => {
           opacity: '#48cae4aa',
         },
         concrete: false,
-        lectures: [ '35' ]
+        lectures: [ '250' ]
       }, {
         id: 4,
         name: 'Ruido',
@@ -44,7 +44,7 @@ export const sensorsData = () => {
           opacity: '#e5989baa',
         },
         concrete: false,
-        lectures: [ '24' ]
+        lectures: [ '204' ]
       }, {
         id: 5,
         name: 'Gases',
@@ -66,7 +66,7 @@ export const sensorsData = () => {
           opacity: '#ffb3c6aa',
         },
         concrete: false,
-        lectures: [ '10' ]
+        lectures: [ '15' ]
       }, {
         id: 7,
         name: 'Movimiento',
@@ -87,8 +87,8 @@ export const sensorsData = () => {
           color: '#bc4b51', 
           opacity: '#bc4b51aa',
         },
-        concrete: false,
-        lectures: [ '10' ]
+        concrete: true,
+        lectures: [ 'NO' ]
       }, {
         id: 9,
         name: 'Vibracion',
