@@ -45,7 +45,12 @@ const ProgressWidget = ({ id, name, functionality, icon, concrete, lectures, dat
       >
         {(fill) => (
           <View style={styles.innerContainer}>
-            <Text style={styles.progressText}>{data}</Text>
+            <Text style={{
+              fontSize: 50,
+              fontWeight: 'bold',
+              color: getColor()
+            }}>{data}</Text>
+
             <Text style={styles.labelText}>{name}</Text>
           </View>
         )}
@@ -69,7 +74,7 @@ const styles = StyleSheet.create({
   progressText: {
     fontSize: 50,
     fontWeight: 'bold',
-    color: '#00e0ff',
+    // color: '#00e0ff',
   },
   labelText: {
     fontSize: 20,
