@@ -2,6 +2,7 @@ import { View, StyleSheet, Text } from "react-native";
 import SmartHomeLogo from "../components/SmartHomeLogo";
 import globalTheme from "../theme/global-theme";
 import useRoom from '../hooks/useRoom.js';
+import CompleterSpace from "../components/CompleterSpace";
 
 export default function Room({ route }) {
   const { id } = route.params;
@@ -13,8 +14,9 @@ export default function Room({ route }) {
       subtitle={`Administra tu ${ room.name }`}
     />
 
-    <Text>Hello World {id}</Text>
-    <Text>Hello World {room.name}</Text>
+    {/*  */}
+
+    <CompleterSpace/>
   </View>;
 }
 

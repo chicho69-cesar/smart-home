@@ -8,7 +8,7 @@ export default function CompleterSpace() {
 const styles = StyleSheet.create({
   spacer: {
     width: '100%',
-    height: 200,
+    height: 600,
     backgroundColor: globalTheme.colors.blue.blue100
   }
 });

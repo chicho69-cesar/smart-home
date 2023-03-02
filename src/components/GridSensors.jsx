@@ -1,28 +1,29 @@
 import { StyleSheet } from "react-native";
+import { useRecoilState } from "recoil";
 import globalTheme from "../theme/global-theme";
 import { HorizontalList } from "./HorizontalList";
 import SensorCard from "./SensorCard";
+import { sensorActiveState } from "../states/sensors";
 
 export default function GridSensors({ sensorsData, navigation }) {
+  const [ sensorActive, setSensorActive ] = useRecoilState(sensorActiveState);
+
   const itemStyles = [
     styles.itemSensor
   ];
 
   return <HorizontalList>
-    {sensorsData.map(sensor => (
-      <SensorCard
+    {sensorsData.map(sensor => {
+      return <SensorCard
         key={sensor.id}
-        id={sensor.id}
-        name={sensor.name}
-        functionality={sensor.functionality}
-        lectures={sensor.lectures}
+        {...sensor}
         style={itemStyles}
         onPress={() => {
-          console.log(sensor)
+          setSensorActive({ ...sensor });
           navigation.navigate('Sensor', { id: sensor.id })
         }}
       />
-    ))}
+    })}
   </HorizontalList>;
 }
 

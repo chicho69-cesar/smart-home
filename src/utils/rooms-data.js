@@ -5,7 +5,10 @@ export const roomsData = () => {
         id: 1,
         name: 'Cocina y comedor',
         image: 'https://i.pinimg.com/564x/32/a2/4f/32a24fce848a821e738632da34e72d60.jpg',
-        sensors: []
+        sensors: [
+          1, 
+          5
+        ]
       }, {
         id: 2,
         name: 'Habitación',
@@ -36,7 +39,22 @@ export const roomsData = () => {
         name: 'Cuarto de limpieza',
         image: 'https://i.pinimg.com/564x/d4/73/48/d47348f5b5699f3eca99a61509f9c256.jpg',
         sensors: []
-      }, 
+      }, {
+        id: 8,
+        name: 'Entrada',
+        image: 'https://i.pinimg.com/564x/a5/b1/25/a5b125ec7b717c857f7c09c799ac5440.jpg',
+        sensors: []
+      }, {
+        id: 9,
+        name: 'Techo medio',
+        image: 'https://i.pinimg.com/564x/3f/68/8c/3f688c4e16d73651e1c47776fed7d529.jpg',
+        sensors: []
+      }, {
+        id: 10,
+        name: 'Techo tracero',
+        image: 'https://i.pinimg.com/564x/54/a7/b1/54a7b179413aa01d8765862964f5e314.jpg',
+        sensors: []
+      },
     ]
   };
 }

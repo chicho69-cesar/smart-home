@@ -12,7 +12,7 @@ export default function Home({ navigation }) {
       subtitle={'Controla tu vida'}
     />
 
-    <RoomsList navigation={navigation}/>
+    <RoomsList navigation={navigation} titleSection='Habitaciones'/>
     <SensorsList navigation={navigation}/>
     <CompleterSpace/>
   </View>;

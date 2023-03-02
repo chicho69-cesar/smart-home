@@ -5,47 +5,101 @@ export const sensorsData = () => {
         id: 1,
         name: 'Temperatura y Humedad',
         functionality: '',
-        lectures: []
+        icon: {
+          name: 'fire',
+          color: '#ef233c', 
+          opacity: '#ef233caa',
+        },
+        concrete: false,
+        lectures: [ '29' ]
       }, {
         id: 2,
         name: 'Lluvia',
         functionality: '',
-        lectures: []
+        icon: {
+          name: 'bath',
+          color: '#a8dadc', 
+          opacity: '#a8dadcaa',
+        },
+        concrete: true,
+        lectures: [ 'SI' ]
       }, {
         id: 3,
         name: 'Humedad de tierra',
         functionality: '',
-        lectures: []
+        icon: {
+          name: 'thermometer',
+          color: '#48cae4', 
+          opacity: '#48cae4aa',
+        },
+        concrete: false,
+        lectures: [ '250' ]
       }, {
         id: 4,
         name: 'Ruido',
         functionality: '',
-        lectures: []
+        icon: {
+          name: 'volume-down',
+          color: '#e5989b', 
+          opacity: '#e5989baa',
+        },
+        concrete: false,
+        lectures: [ '204' ]
       }, {
         id: 5,
         name: 'Gases',
         functionality: '',
-        lectures: []
+        icon: {
+          name: 'exclamation-circle',
+          color: '#dda15e', 
+          opacity: '#dda15eaa',
+        },
+        concrete: true,
+        lectures: [ 'NO' ]
       }, {
         id: 6,
         name: 'Ultrasonico',
         functionality: '',
-        lectures: []
+        icon: {
+          name: 'bullhorn',
+          color: '#ffb3c6', 
+          opacity: '#ffb3c6aa',
+        },
+        concrete: false,
+        lectures: [ '15' ]
       }, {
         id: 7,
         name: 'Movimiento',
         functionality: '',
-        lectures: []
+        icon: {
+          name: 'male',
+          color: '#e6ccb2', 
+          opacity: '#e6ccb2aa',
+        },
+        concrete: true,
+        lectures: [ 'SI' ]
       }, {
         id: 8,
         name: 'Infrarojo',
         functionality: '',
-        lectures: []
+        icon: {
+          name: 'map-pin',
+          color: '#bc4b51', 
+          opacity: '#bc4b51aa',
+        },
+        concrete: true,
+        lectures: [ 'NO' ]
       }, {
         id: 9,
         name: 'Vibracion',
         functionality: '',
-        lectures: []
+        icon: {
+          name: 'spinner',
+          color: '#ffafcc', 
+          opacity: '#ffafccaa',
+        },
+        concrete: true,
+        lectures: [ 'NO' ]
       },
     ]
   };
