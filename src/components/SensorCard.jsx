@@ -6,6 +6,10 @@ export default function SensorCard({ id, name, functionality, icon, lectures, st
     style
   ];
 
+  const getLastLecture = lectures => {
+    return lectures[lectures.length - 1];
+  }
+
   return <TouchableOpacity style={cardStyles} onPress={onPress}>
     <View style={styles.container}>
       <View style={styles.header}>
@@ -19,7 +23,7 @@ export default function SensorCard({ id, name, functionality, icon, lectures, st
 
       <View style={styles.body}>
         <Text style={styles.name}>{name}</Text>
-        <Text>{lectures[0]}</Text>
+        <Text>{getLastLecture(lectures)}</Text>
       </View>
 
       <View>

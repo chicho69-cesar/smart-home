@@ -4,6 +4,7 @@ import CompleterSpace from "../components/CompleterSpace";
 import ProgressWidget from "../components/ProgressWidget";
 import useSensor from "../hooks/useSensor";
 import globalTheme from "../theme/global-theme";
+import { Lecture } from "../components/Lecture";
 
 export default function Sensor({ route }) {
   const { id } = route.params;
@@ -15,9 +16,11 @@ export default function Sensor({ route }) {
       subtitle={`Medidas de ${ sensor.name }`}
     />
 
-    <ProgressWidget progress={40} />
+    <Lecture
+      {...sensor}
+    />
 
-    {/* <CompleterSpace/> */}
+    <CompleterSpace/>
   </View>;
 }
 

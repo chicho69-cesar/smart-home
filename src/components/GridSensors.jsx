@@ -13,21 +13,17 @@ export default function GridSensors({ sensorsData, navigation }) {
   ];
 
   return <HorizontalList>
-    {sensorsData.map(sensor => (
-      <SensorCard
+    {sensorsData.map(sensor => {
+      return <SensorCard
         key={sensor.id}
-        id={sensor.id}
-        name={sensor.name}
-        icon={sensor.icon}
-        functionality={sensor.functionality}
-        lectures={sensor.lectures}
+        {...sensor}
         style={itemStyles}
         onPress={() => {
           setSensorActive({ ...sensor });
           navigation.navigate('Sensor', { id: sensor.id })
         }}
       />
-    ))}
+    })}
   </HorizontalList>;
 }
 
