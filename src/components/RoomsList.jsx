@@ -6,17 +6,21 @@ import { HorizontalList } from "./HorizontalList";
 import { useRecoilState } from "recoil";
 import { activeRoomState } from "../states/rooms";
 
-export default function RoomsList({ navigation }) {
+export default function RoomsList({ navigation, sensor, titleSection }) {
   const [ roomActive, setRoomActive ] = useRecoilState(activeRoomState);
 
   const { rooms } = roomsData();
 
   return <View style={styles.container}>
-    <Text style={styles.title}>Habitaciones</Text>
+    <Text style={styles.title}>{titleSection}</Text>
 
     <HorizontalList>
-      {rooms.map(room => (
-        <RoomCard 
+      {rooms.map(room => {
+        if (sensor && !room.sensors.includes(sensor)) {
+          return <View key={room.id}></View>
+        }
+
+        return <RoomCard 
           key={room.id}
           id={room.id}
           name={room.name}
@@ -27,7 +31,7 @@ export default function RoomsList({ navigation }) {
             navigation.navigate('Room', { id: room.id })
           }}
         />
-      ))}
+      })}
     </HorizontalList>
   </View>;
 }
@@ -42,7 +46,7 @@ const styles = StyleSheet.create({
     fontSize: globalTheme.fontSizes.titles,
     fontWeight: globalTheme.fontWeights.bold,
     marginBottom: 5,
-    marginTop: 15
+    marginTop: 10
   },
   scroll: {
     paddingBottom: 15

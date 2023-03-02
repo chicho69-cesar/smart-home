@@ -35,7 +35,7 @@ export const Lecture = ({ id, name, functionality, icon, concrete, lectures }) =
 const stylesLecture = StyleSheet.create({
   container: {
     width: '100%',
-    marginTop: 30,
+    marginTop: 15,
     paddingHorizontal: 20
   },
   titleLecture: {

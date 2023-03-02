@@ -5,9 +5,9 @@ import ProgressWidget from "../components/ProgressWidget";
 import useSensor from "../hooks/useSensor";
 import globalTheme from "../theme/global-theme";
 import { Lecture } from "../components/Lecture";
-import { AppliedRooms } from "../components/AppliedRooms";
+import RoomsList from "../components/RoomsList";
 
-export default function Sensor({ route }) {
+export default function Sensor({ navigation, route }) {
   const { id } = route.params;
   const { sensor } = useSensor(id);
 
@@ -21,7 +21,11 @@ export default function Sensor({ route }) {
       {...sensor}
     />
 
-    <AppliedRooms id={sensor.id}/>
+    <RoomsList 
+      navigation={navigation}
+      sensor={id}
+      titleSection='Habitaciones que lo emplean'
+    />
 
     <CompleterSpace/>
   </View>;

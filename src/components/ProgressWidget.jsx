@@ -34,7 +34,7 @@ const ProgressWidget = ({ id, name, functionality, icon, concrete, lectures, dat
   return (
     <View style={styles.container}>
       <AnimatedCircularProgress
-        size={250}
+        size={200}
         width={12}
         fill={progress}
         tintColor={getColor()}
@@ -74,10 +74,10 @@ const styles = StyleSheet.create({
   progressText: {
     fontSize: 50,
     fontWeight: 'bold',
-    // color: '#00e0ff',
   },
   labelText: {
-    fontSize: 20,
+    fontSize: 17,
+    textAlign: 'center',
     fontWeight: 'bold',
     color: '#3d5875',
   },
