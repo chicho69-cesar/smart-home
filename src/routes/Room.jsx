@@ -2,9 +2,11 @@ import { View, StyleSheet, Text } from "react-native";
 import SmartHomeLogo from "../components/SmartHomeLogo";
 import globalTheme from "../theme/global-theme";
 import useRoom from '../hooks/useRoom.js';
+import LightLed from "../components/LightLed";
 import CompleterSpace from "../components/CompleterSpace";
+import SensorsList from "../components/SensorsList";
 
-export default function Room({ route }) {
+export default function Room({ navigation, route }) {
   const { id } = route.params;
   const { room } = useRoom(id);
 
@@ -14,7 +16,13 @@ export default function Room({ route }) {
       subtitle={`Administra tu ${ room.name }`}
     />
 
-    {/*  */}
+    <LightLed id={id}/>
+
+    <SensorsList 
+      navigation={navigation} 
+      roomSensors={room.sensors}
+      titleSection='Sensores de la habitación'
+    />
 
     <CompleterSpace/>
   </View>;

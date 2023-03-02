@@ -56,7 +56,7 @@ export const LectureTacometer = ({ id, name, functionality, icon, concrete, lect
         return (temperature + 10) * 2;
       case 3:
         let earthHumidity = getLastLecture(lectures);
-        return earthHumidity * 100 / 1023;
+        return 100 - (earthHumidity * 100 / 1024);
       case 4:
         let sony = getLastLecture(lectures);
         return sony * 100 / 450;
