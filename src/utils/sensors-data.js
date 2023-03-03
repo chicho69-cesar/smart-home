@@ -6,7 +6,7 @@ export const sensorsData = () => {
         name: 'Temperatura de la sala',
         firebaseName: 'temperature1',
         icon: {
-          name: 'thermometer',
+          name: 'fire',
           color: '#ef233c', 
           opacity: '#ef233caa',
         },
@@ -17,7 +17,7 @@ export const sensorsData = () => {
         name: 'Temperatura de habitacion',
         firebaseName: 'temperature2',
         icon: {
-          name: 'thermometer',
+          name: 'fire',
           color: '#ef233c', 
           opacity: '#ef233caa',
         },
@@ -25,23 +25,23 @@ export const sensorsData = () => {
         lectures: [ '20.5' ]
       }, {
         id: 3,
-        name: 'Temperatura de la sala',
+        name: 'Humedad de la sala',
         firebaseName: 'humidity1',
         icon: {
-          name: 'fire',
-          color: '#ef233c', 
-          opacity: '#ef233caa',
+          name: 'thermometer',
+          color: '#2a9d8f', 
+          opacity: '#2a9d8faa',
         },
         concrete: false,
         lectures: [ '18' ]
       }, {
         id: 4,
-        name: 'Temperatura de habitacion',
+        name: 'Humedad de habitacion',
         firebaseName: 'humidity2',
         icon: {
-          name: 'fire',
-          color: '#ef233c', 
-          opacity: '#ef233caa',
+          name: 'thermometer',
+          color: '#2a9d8f', 
+          opacity: '#2a9d8faa',
         },
         concrete: false,
         lectures: [ '28' ]
@@ -65,8 +65,8 @@ export const sensorsData = () => {
           color: '#dda15e', 
           opacity: '#dda15eaa',
         },
-        concrete: true,
-        lectures: [ '1' ]
+        concrete: false,
+        lectures: [ '350' ]
       }, {
         id: 7,
         name: 'Distancia a la Entrada',
@@ -102,10 +102,10 @@ export const sensorsData = () => {
         lectures: [ 'NO' ]
       }, {
         id: 10,
-        name: 'Movimiento en el cuarto de limpieza',
+        name: 'Movimiento en lavanderia',
         firebaseName: 'motion2',
         icon: {
-          name: 'male',
+          name: 'volume-down',
           color: '#e6ccb2', 
           opacity: '#e6ccb2aa',
         },

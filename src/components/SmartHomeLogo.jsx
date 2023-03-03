@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
   logo: {
-    fontSize: 25,
+    fontSize: 22,
     color: globalTheme.colors.black.blackPrimary,
     fontWeight: globalTheme.fontWeights.bold
   },

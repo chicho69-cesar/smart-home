@@ -51,18 +51,18 @@ export const LectureTacometer = ({ id, name, firebaseName, icon, concrete, lectu
   
   const getProgress = id => {
     switch (id) {
-      case 1: 
-        let temperature = getLastLecture(lectures);
-        return (temperature + 10) * 2;
-      case 3:
-        let earthHumidity = getLastLecture(lectures);
-        return 100 - (earthHumidity * 100 / 1024);
-      case 4:
-        let sony = getLastLecture(lectures);
-        return sony * 100 / 450;
+      case 1: case 2:
+        let temperature1 = getLastLecture(lectures);
+        return (temperature1 + 10) * 2;
+      case 3: case 4:
+        let humidity = getLastLecture(lectures);
+        return (humidity - 10) * 100 / 70;
       case 6:
+        let gases = getLastLecture(lectures);
+        return (gases - 300) * 100 / 9700;
+      case 7: case 8:
         let distance = getLastLecture(lectures);
-        return 100 - (distance * 100 / 448);
+        return 100 - ((distance - 2) * 100 / 398);
     }
 
     return 0;
