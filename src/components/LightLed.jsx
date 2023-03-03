@@ -1,13 +1,55 @@
 import { StyleSheet, View, Image, Text, TouchableOpacity } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { ref, update } from "firebase/database";
+import { db } from '../firebase/firebase';
 import globalTheme from '../theme/global-theme';
+import { useRecoilState } from 'recoil';
+import { sensorDataListState } from '../states/sensors';
 
 export default function LightLed({ id }) {
+  const [ sensorDataList, setSensorDataList ] = useRecoilState(sensorDataListState);
   const [ isOn, setIsOn ] = useState(false);
+
+  useEffect(() => {
+    if (id === 5) {
+      let initialState = sensorDataList['led1'] === 1;
+      setIsOn(initialState);
+    }
+
+    if (id === 2) {
+      let initialState = sensorDataList['led2'] === 1;
+      setIsOn(initialState);
+    }
+  }, []);
 
   const toggleLight = () => {
     setIsOn(!isOn);
+    let isOnOff = isOn ? 0 : 1;
+
+    if (id === 5) {
+      const auxSensorsData = { ...sensorDataList };
+      auxSensorsData['led1'] = isOnOff;
+      
+      update(
+        ref(db, '/'), 
+        { ...auxSensorsData }
+      )
+        .then(() => console.log('Led cambio de estado'))
+        .catch(err => console.log(err));
+    }
+
+    if (id === 2) {
+      const auxSensorsData = { ...sensorDataList };
+      auxSensorsData['led2'] = isOnOff;
+      
+      update(
+        ref(db, '/'), 
+        { ...auxSensorsData }
+      )
+        .then(() => console.log('Led cambio de estado'))
+        .catch(err => console.log(err));
+    }
   };
 
   return (
