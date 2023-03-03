@@ -1,13 +1,21 @@
 import { StyleSheet, TouchableOpacity, Text, View } from "react-native";
-import { Ionicons, FontAwesome5 } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
+import { useRecoilState } from "recoil";
+import { sensorDataListState } from "../states/sensors";
 
-export default function SensorCard({ id, name, functionality, icon, lectures, style, onPress }) {
+export default function SensorCard({ id, name, firebaseName, icon, lectures, concrete, style, onPress }) {
+  const [ sensorDataList, setSensorDataList ] = useRecoilState(sensorDataListState);
   const cardStyles = [
     style
   ];
 
-  const getLastLecture = lectures => {
-    return lectures[lectures.length - 1];
+  const getLastLecture = lectureName => {
+    if (concrete) {
+      return sensorDataList[lectureName] === 0
+        ? 'NO' : 'SI';
+    }
+
+    return `${ sensorDataList[lectureName] }`;
   }
 
   return <TouchableOpacity style={cardStyles} onPress={onPress}>
@@ -23,7 +31,7 @@ export default function SensorCard({ id, name, functionality, icon, lectures, st
 
       <View style={styles.body}>
         <Text style={styles.name}>{name}</Text>
-        <Text>{getLastLecture(lectures)}</Text>
+        <Text>{getLastLecture(firebaseName)}</Text>
       </View>
 
       <View>

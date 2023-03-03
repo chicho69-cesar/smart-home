@@ -2,8 +2,10 @@ import { View, Text, StyleSheet } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import ProgressWidget from './ProgressWidget';
 import globalTheme from '../theme/global-theme';
+import { useRecoilState } from 'recoil';
+import { sensorDataListState } from '../states/sensors';
 
-export const Lecture = ({ id, name, functionality, icon, concrete, lectures }) => {
+export const Lecture = ({ id, name, firebaseName, icon, concrete, lectures }) => {
   return lectures !== undefined
     ? (
       <View style={stylesLecture.container}>
@@ -13,7 +15,7 @@ export const Lecture = ({ id, name, functionality, icon, concrete, lectures }) =
             ? <LectureConcrete
               id={id}
               name={name}
-              functionality={functionality}
+              firebaseName={firebaseName}
               icon={icon}
               concrete={concrete}
               lectures={lectures}
@@ -21,7 +23,7 @@ export const Lecture = ({ id, name, functionality, icon, concrete, lectures }) =
             : <LectureTacometer
               id={id}
               name={name}
-              functionality={functionality}
+              firebaseName={firebaseName}
               icon={icon}
               concrete={concrete}
               lectures={lectures}
@@ -44,25 +46,27 @@ const stylesLecture = StyleSheet.create({
   }
 });
 
-export const LectureTacometer = ({ id, name, functionality, icon, concrete, lectures }) => {
-  const getLastLecture = lectures => {
-    return +(lectures[lectures.length - 1]);
+export const LectureTacometer = ({ id, name, firebaseName, icon, concrete, lectures }) => {
+  const [ sensorDataList, setSensorDataList ] = useRecoilState(sensorDataListState);
+  
+  const getLastLecture = lectureName => {
+    return +(sensorDataList[lectureName]);
   }
   
   const getProgress = id => {
     switch (id) {
-      case 1: 
-        let temperature = getLastLecture(lectures);
-        return (temperature + 10) * 2;
-      case 3:
-        let earthHumidity = getLastLecture(lectures);
-        return earthHumidity * 100 / 1023;
-      case 4:
-        let sony = getLastLecture(lectures);
-        return sony * 100 / 450;
+      case 1: case 2:
+        let temperature1 = getLastLecture(firebaseName);
+        return (temperature1 + 10) * 2;
+      case 3: case 4:
+        let humidity = getLastLecture(firebaseName);
+        return (humidity - 10) * 100 / 70;
       case 6:
-        let distance = getLastLecture(lectures);
-        return 100 - (distance * 100 / 448);
+        let gases = getLastLecture(firebaseName);
+        return (gases - 300) * 100 / 9700;
+      case 7: case 8:
+        let distance = getLastLecture(firebaseName);
+        return 100 - ((distance - 2) * 100 / 398);
     }
 
     return 0;
@@ -73,25 +77,31 @@ export const LectureTacometer = ({ id, name, functionality, icon, concrete, lect
       <ProgressWidget
         id={id}
         name={name}
-        functionality={functionality}
+        firebaseName={firebaseName}
         icon={icon}
         concrete={concrete}
         lectures={lectures}
-        data={getLastLecture(lectures)}
+        data={getLastLecture(firebaseName)}
         progress={getProgress(id)}
       />
     </View>
   );
 }
 
-export const LectureConcrete = ({ id, name, functionality, icon, concrete, lectures }) => {
-  const getLastLecture = lectures => {
-    return lectures[lectures.length - 1];
+export const LectureConcrete = ({ id, name, firebaseName, icon, concrete, lectures }) => {
+  const [ sensorDataList, setSensorDataList ] = useRecoilState(sensorDataListState);
+  
+  const getLastLecture = lectureName => {
+    if (concrete) {
+      return sensorDataList[lectureName] === 0
+        ? 'NO' : 'SI';
+    }
+
+    return `${ sensorDataList[lectureName] }`;
   }
 
   const isActive = () => {
-    console.log(lectures);
-    return getLastLecture(lectures) === 'SI';
+    return getLastLecture(firebaseName) === 'SI';
   }
   
   return (

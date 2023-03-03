@@ -6,7 +6,7 @@ import SensorCard from "./SensorCard";
 import { sensorActiveState } from "../states/sensors";
 
 export default function GridSensors({ sensorsData, navigation }) {
-  const [ sensorActive, setSensorActive ] = useRecoilState(sensorActiveState);
+  const [ _, setSensorActive ] = useRecoilState(sensorActiveState);
 
   const itemStyles = [
     styles.itemSensor

@@ -3,14 +3,22 @@ import { sensorsData } from "../utils/sensors-data";
 import globalTheme from './../theme/global-theme.js';
 import GridSensors from "./GridSensors";
 
-export default function SensorsList({ navigation }) {
+export default function SensorsList({ navigation, roomSensors, titleSection }) {
   const { sensors } = sensorsData();
 
+  const getData = () => {
+    if (!roomSensors) {
+      return sensors;
+    }
+
+    return sensors.filter(s => roomSensors.includes(s.id));
+  }
+
   return <View style={styles.container}>
-    <Text style={styles.title}>Sensores</Text>
+    <Text style={styles.title}>{titleSection}</Text>
 
     <GridSensors
-      sensorsData={sensors}
+      sensorsData={getData()}
       navigation={navigation}
     />
   </View>;
