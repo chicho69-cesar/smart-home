@@ -1,7 +1,7 @@
 import { StyleSheet, TouchableOpacity, Text, View } from "react-native";
 import { Ionicons, FontAwesome5 } from '@expo/vector-icons';
 
-export default function SensorCard({ id, name, functionality, icon, lectures, style, onPress }) {
+export default function SensorCard({ id, name, firebaseName, icon, lectures, style, onPress }) {
   const cardStyles = [
     style
   ];

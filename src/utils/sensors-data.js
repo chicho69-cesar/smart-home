@@ -3,19 +3,52 @@ export const sensorsData = () => {
     sensors: [
       {
         id: 1,
-        name: 'Temperatura y Humedad',
-        functionality: '',
+        name: 'Temperatura de la sala',
+        firebaseName: 'temperature1',
+        icon: {
+          name: 'thermometer',
+          color: '#ef233c', 
+          opacity: '#ef233caa',
+        },
+        concrete: false,
+        lectures: [ '16' ]
+      }, {
+        id: 2,
+        name: 'Temperatura de habitacion',
+        firebaseName: 'temperature2',
+        icon: {
+          name: 'thermometer',
+          color: '#ef233c', 
+          opacity: '#ef233caa',
+        },
+        concrete: false,
+        lectures: [ '20.5' ]
+      }, {
+        id: 3,
+        name: 'Temperatura de la sala',
+        firebaseName: 'humidity1',
         icon: {
           name: 'fire',
           color: '#ef233c', 
           opacity: '#ef233caa',
         },
         concrete: false,
-        lectures: [ '29' ]
+        lectures: [ '18' ]
       }, {
-        id: 2,
+        id: 4,
+        name: 'Temperatura de habitacion',
+        firebaseName: 'humidity2',
+        icon: {
+          name: 'fire',
+          color: '#ef233c', 
+          opacity: '#ef233caa',
+        },
+        concrete: false,
+        lectures: [ '28' ]
+      }, {
+        id: 5,
         name: 'Lluvia',
-        functionality: '',
+        firebaseName: 'rain',
         icon: {
           name: 'bath',
           color: '#a8dadc', 
@@ -24,53 +57,64 @@ export const sensorsData = () => {
         concrete: true,
         lectures: [ 'SI' ]
       }, {
-        id: 3,
-        name: 'Humedad de tierra',
-        functionality: '',
-        icon: {
-          name: 'thermometer',
-          color: '#48cae4', 
-          opacity: '#48cae4aa',
-        },
-        concrete: false,
-        lectures: [ '250' ]
-      }, {
-        id: 4,
-        name: 'Ruido',
-        functionality: '',
-        icon: {
-          name: 'volume-down',
-          color: '#e5989b', 
-          opacity: '#e5989baa',
-        },
-        concrete: false,
-        lectures: [ '204' ]
-      }, {
-        id: 5,
+        id: 6,
         name: 'Gases',
-        functionality: '',
+        firebaseName: 'smoke',
         icon: {
           name: 'exclamation-circle',
           color: '#dda15e', 
           opacity: '#dda15eaa',
         },
         concrete: true,
-        lectures: [ 'NO' ]
+        lectures: [ '1' ]
       }, {
-        id: 6,
-        name: 'Ultrasonico',
-        functionality: '',
+        id: 7,
+        name: 'Distancia a la Entrada',
+        firebaseName: 'distance1',
         icon: {
           name: 'bullhorn',
           color: '#ffb3c6', 
           opacity: '#ffb3c6aa',
         },
         concrete: false,
-        lectures: [ '15' ]
+        lectures: [ '57' ]
       }, {
-        id: 7,
-        name: 'Movimiento',
-        functionality: '',
+        id: 8,
+        name: 'Distancia a la Habitacion',
+        firebaseName: 'distance2',
+        icon: {
+          name: 'bullhorn',
+          color: '#ffb3c6', 
+          opacity: '#ffb3c6aa',
+        },
+        concrete: false,
+        lectures: [ '12.35' ]
+      }, {
+        id: 9,
+        name: 'Movimiento en la Entrada',
+        firebaseName: 'motion1',
+        icon: {
+          name: 'volume-down',
+          color: '#e6ccb2', 
+          opacity: '#e6ccb2aa',
+        },
+        concrete: true,
+        lectures: [ 'NO' ]
+      }, {
+        id: 10,
+        name: 'Movimiento en el cuarto de limpieza',
+        firebaseName: 'motion2',
+        icon: {
+          name: 'male',
+          color: '#e6ccb2', 
+          opacity: '#e6ccb2aa',
+        },
+        concrete: true,
+        lectures: [ 'NO' ]
+      }, {
+        id: 11,
+        name: 'Movimiento en la cocina',
+        firebaseName: 'motion3',
         icon: {
           name: 'male',
           color: '#e6ccb2', 
@@ -79,9 +123,20 @@ export const sensorsData = () => {
         concrete: true,
         lectures: [ 'SI' ]
       }, {
-        id: 8,
-        name: 'Infrarojo',
-        functionality: '',
+        id: 12,
+        name: 'Movimiento en el estudio',
+        firebaseName: 'motion4',
+        icon: {
+          name: 'male',
+          color: '#e6ccb2', 
+          opacity: '#e6ccb2aa',
+        },
+        concrete: true,
+        lectures: [ 'NO' ]
+      }, {
+        id: 13,
+        name: 'Actividad en la sala',
+        firebaseName: 'infrared',
         icon: {
           name: 'map-pin',
           color: '#bc4b51', 
@@ -90,16 +145,16 @@ export const sensorsData = () => {
         concrete: true,
         lectures: [ 'NO' ]
       }, {
-        id: 9,
+        id: 14,
         name: 'Vibracion',
-        functionality: '',
+        firebaseName: 'vibration',
         icon: {
           name: 'spinner',
           color: '#ffafcc', 
           opacity: '#ffafccaa',
         },
         concrete: true,
-        lectures: [ 'NO' ]
+        lectures: [ 'SI' ]
       },
     ]
   };

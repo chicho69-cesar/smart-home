@@ -3,7 +3,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import ProgressWidget from './ProgressWidget';
 import globalTheme from '../theme/global-theme';
 
-export const Lecture = ({ id, name, functionality, icon, concrete, lectures }) => {
+export const Lecture = ({ id, name, firebaseName, icon, concrete, lectures }) => {
   return lectures !== undefined
     ? (
       <View style={stylesLecture.container}>
@@ -13,7 +13,7 @@ export const Lecture = ({ id, name, functionality, icon, concrete, lectures }) =
             ? <LectureConcrete
               id={id}
               name={name}
-              functionality={functionality}
+              firebaseName={firebaseName}
               icon={icon}
               concrete={concrete}
               lectures={lectures}
@@ -21,7 +21,7 @@ export const Lecture = ({ id, name, functionality, icon, concrete, lectures }) =
             : <LectureTacometer
               id={id}
               name={name}
-              functionality={functionality}
+              firebaseName={firebaseName}
               icon={icon}
               concrete={concrete}
               lectures={lectures}
@@ -44,7 +44,7 @@ const stylesLecture = StyleSheet.create({
   }
 });
 
-export const LectureTacometer = ({ id, name, functionality, icon, concrete, lectures }) => {
+export const LectureTacometer = ({ id, name, firebaseName, icon, concrete, lectures }) => {
   const getLastLecture = lectures => {
     return +(lectures[lectures.length - 1]);
   }
@@ -73,7 +73,7 @@ export const LectureTacometer = ({ id, name, functionality, icon, concrete, lect
       <ProgressWidget
         id={id}
         name={name}
-        functionality={functionality}
+        firebaseName={firebaseName}
         icon={icon}
         concrete={concrete}
         lectures={lectures}
@@ -84,7 +84,7 @@ export const LectureTacometer = ({ id, name, functionality, icon, concrete, lect
   );
 }
 
-export const LectureConcrete = ({ id, name, functionality, icon, concrete, lectures }) => {
+export const LectureConcrete = ({ id, name, firebaseName, icon, concrete, lectures }) => {
   const getLastLecture = lectures => {
     return lectures[lectures.length - 1];
   }

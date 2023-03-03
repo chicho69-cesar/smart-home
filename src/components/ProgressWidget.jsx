@@ -6,7 +6,7 @@ import globalTheme from '../theme/global-theme';
 import useSensor from '../hooks/useSensor';
 import { sensorsData } from '../utils/sensors-data';
 
-const ProgressWidget = ({ id, name, functionality, icon, concrete, lectures, data, progress }) => {
+const ProgressWidget = ({ id, name, firebaseName, icon, concrete, lectures, data, progress }) => {
   const getColor = () => {
     if (progress >= 0 && progress < 10) {
       return '#ade8f4';
