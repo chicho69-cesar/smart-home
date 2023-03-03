@@ -12,9 +12,6 @@ export default function Sensor({ navigation, route }) {
   const { id } = route.params;
   const { sensor } = useSensor(id);
 
-  const [ sensorDataList, _ ] = useRecoilState(sensorDataListState);
-  // console.log(sensorDataList);
-
   return <View style={styles.container}>
     <SmartHomeLogo
       title={sensor.name}

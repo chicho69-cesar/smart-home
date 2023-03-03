@@ -2,6 +2,8 @@ import { View, Text, StyleSheet } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import ProgressWidget from './ProgressWidget';
 import globalTheme from '../theme/global-theme';
+import { useRecoilState } from 'recoil';
+import { sensorDataListState } from '../states/sensors';
 
 export const Lecture = ({ id, name, firebaseName, icon, concrete, lectures }) => {
   return lectures !== undefined
@@ -45,23 +47,25 @@ const stylesLecture = StyleSheet.create({
 });
 
 export const LectureTacometer = ({ id, name, firebaseName, icon, concrete, lectures }) => {
-  const getLastLecture = lectures => {
-    return +(lectures[lectures.length - 1]);
+  const [ sensorDataList, setSensorDataList ] = useRecoilState(sensorDataListState);
+  
+  const getLastLecture = lectureName => {
+    return +(sensorDataList[lectureName]);
   }
   
   const getProgress = id => {
     switch (id) {
       case 1: case 2:
-        let temperature1 = getLastLecture(lectures);
+        let temperature1 = getLastLecture(firebaseName);
         return (temperature1 + 10) * 2;
       case 3: case 4:
-        let humidity = getLastLecture(lectures);
+        let humidity = getLastLecture(firebaseName);
         return (humidity - 10) * 100 / 70;
       case 6:
-        let gases = getLastLecture(lectures);
+        let gases = getLastLecture(firebaseName);
         return (gases - 300) * 100 / 9700;
       case 7: case 8:
-        let distance = getLastLecture(lectures);
+        let distance = getLastLecture(firebaseName);
         return 100 - ((distance - 2) * 100 / 398);
     }
 
@@ -77,7 +81,7 @@ export const LectureTacometer = ({ id, name, firebaseName, icon, concrete, lectu
         icon={icon}
         concrete={concrete}
         lectures={lectures}
-        data={getLastLecture(lectures)}
+        data={getLastLecture(firebaseName)}
         progress={getProgress(id)}
       />
     </View>
@@ -85,13 +89,19 @@ export const LectureTacometer = ({ id, name, firebaseName, icon, concrete, lectu
 }
 
 export const LectureConcrete = ({ id, name, firebaseName, icon, concrete, lectures }) => {
-  const getLastLecture = lectures => {
-    return lectures[lectures.length - 1];
+  const [ sensorDataList, setSensorDataList ] = useRecoilState(sensorDataListState);
+  
+  const getLastLecture = lectureName => {
+    if (concrete) {
+      return sensorDataList[lectureName] === 0
+        ? 'NO' : 'SI';
+    }
+
+    return `${ sensorDataList[lectureName] }`;
   }
 
   const isActive = () => {
-    console.log(lectures);
-    return getLastLecture(lectures) === 'SI';
+    return getLastLecture(firebaseName) === 'SI';
   }
   
   return (
